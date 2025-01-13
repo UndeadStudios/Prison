@@ -62,7 +62,7 @@ public class PrisonUtilsMineBombsTasks
 
 		if ( itemInHand != null && itemInHand.getBukkitStack() != null ) {
 
-			itemInHand.getBukkitStack().addUnsafeEnchantment( Enchantment.LOOT_BONUS_BLOCKS, fortuneLevel );
+			itemInHand.getBukkitStack().addUnsafeEnchantment( Enchantment.FORTUNE, fortuneLevel );
 
 			// ItemMeta meta = itemInHand.getBukkitStack().getItemMeta();
 			// meta.addEnchant( Enchantment.LOOT_BONUS_BLOCKS, fortuneLevel,
@@ -75,7 +75,7 @@ public class PrisonUtilsMineBombsTasks
 		
 		if ( itemInHand != null && itemInHand.getBukkitStack() != null ) {
 			
-			itemInHand.getBukkitStack().addUnsafeEnchantment( Enchantment.DURABILITY, durabilityLevel );
+			itemInHand.getBukkitStack().addUnsafeEnchantment( Enchantment.UNBREAKING, durabilityLevel );
 		}
 	}
 	
@@ -83,7 +83,7 @@ public class PrisonUtilsMineBombsTasks
 		
 		if ( itemInHand != null && itemInHand.getBukkitStack() != null ) {
 			
-			itemInHand.getBukkitStack().addUnsafeEnchantment( Enchantment.DIG_SPEED, digSpeedLevel );
+			itemInHand.getBukkitStack().addUnsafeEnchantment( Enchantment.EFFICIENCY, digSpeedLevel );
 		}
 	}
 

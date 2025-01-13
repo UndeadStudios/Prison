@@ -1904,8 +1904,8 @@ public abstract class OnBlockBreakEventCore
 			if ( maxDurability > 0 ) {
 				short damage = 1;
 				
-				if ( itemInHand.getBukkitStack().containsEnchantment( Enchantment.DURABILITY)) {
-					durabilityLevel = itemInHand.getBukkitStack().getEnchantmentLevel( Enchantment.DURABILITY );
+				if ( itemInHand.getBukkitStack().containsEnchantment( Enchantment.UNBREAKING)) {
+					durabilityLevel = itemInHand.getBukkitStack().getEnchantmentLevel( Enchantment.UNBREAKING );
 				}
 				
 				for ( int y = 0; y < blocksMined; y++ ) {

@@ -96,7 +96,7 @@ public class SpigotInventory implements Inventory {
     @SuppressWarnings( "deprecation" )
 	@Override 
 	public String getTitle() {
-        return wrapper.getTitle();
+        return wrapper.getViewers().get(0).getOpenInventory().getTitle();
     }
 
     @Override 
@@ -123,9 +123,9 @@ public class SpigotInventory implements Inventory {
     }
 
     @SuppressWarnings( "deprecation" )
-	@Override 
+	@Override
 	public String getName() {
-        return wrapper.getName();
+        return wrapper.getViewers().get(0).getName();
     }
 
     @Override 

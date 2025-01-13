@@ -9,7 +9,7 @@ public abstract class Spigot_1_8_GUI
     @SuppressWarnings( "deprecation" )
     @Override
     public String getGUITitle(InventoryEvent e){
-        return e.getInventory().getTitle();
+        return e.getView().getTitle();
     }
 
 }

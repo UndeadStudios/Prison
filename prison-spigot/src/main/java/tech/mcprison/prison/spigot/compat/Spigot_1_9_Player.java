@@ -15,7 +15,7 @@ public abstract class Spigot_1_9_Player
 	public void setMaxHealth( Player player, double maxHealth ) {
 		
 		if ( player != null ) {
-			AttributeInstance maxHealthAttribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+			AttributeInstance maxHealthAttribute = player.getAttribute(Attribute.MAX_HEALTH);
 	        if( maxHealthAttribute != null ) {
 	        	maxHealthAttribute.setBaseValue( maxHealth );
 	        }
@@ -27,7 +27,7 @@ public abstract class Spigot_1_9_Player
 		double maxHealth = 0;
 		
 		if ( player != null ) {
-			AttributeInstance maxHealthAttribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+			AttributeInstance maxHealthAttribute = player.getAttribute(Attribute.MAX_HEALTH);
 	        if( maxHealthAttribute != null ) {
 	        	maxHealth = maxHealthAttribute.getValue();
 	        }

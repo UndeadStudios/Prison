@@ -253,7 +253,7 @@ public class SpigotPlayerPrestigesGUI
                 if (hackyCounterEnchant <= 0) {
                     hackyCounterEnchant++;
                     if (enchantmentEffectEnabled) {
-                        itemrank.addUnsafeEnchantment(Enchantment.LUCK, 1);
+                        itemrank.addUnsafeEnchantment(Enchantment.LUCK_OF_THE_SEA, 1);
                     }
                 }
             }

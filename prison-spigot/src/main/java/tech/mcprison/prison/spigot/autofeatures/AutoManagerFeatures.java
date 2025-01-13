@@ -371,7 +371,7 @@ public abstract class AutoManagerFeatures
 		boolean results = false;
 		try {
 			if ( itemInHand != null && itemInHand.getBukkitStack() != null && itemInHand.getBukkitStack().getEnchantments() != null ) {
-				results = itemInHand.getBukkitStack().getEnchantments().containsKey(Enchantment.LOOT_BONUS_BLOCKS);
+				results = itemInHand.getBukkitStack().getEnchantments().containsKey(Enchantment.FORTUNE);
 			}
 		}
 		catch ( NullPointerException e ) {
@@ -407,9 +407,9 @@ public abstract class AutoManagerFeatures
 			if ( !usedTEFortune &&
 					itemInHand != null && 
 					itemInHand.getBukkitStack() != null && 
-					itemInHand.getBukkitStack().containsEnchantment( Enchantment.LOOT_BONUS_BLOCKS ) &&
+					itemInHand.getBukkitStack().containsEnchantment( Enchantment.FORTUNE ) &&
 					itemInHand.getBukkitStack().getEnchantments() != null ) {
-				fortLevel = itemInHand.getBukkitStack().getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS);
+				fortLevel = itemInHand.getBukkitStack().getEnchantmentLevel(Enchantment.FORTUNE);
 			}
 		}
 		catch ( NullPointerException e ) {

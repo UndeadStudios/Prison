@@ -51,8 +51,9 @@ base {
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = "UTF-8"
 
-ext.targetArchiveClassifier = 'Java1.8'
-//ext.targetArchiveClassifier = 'Java16'
+//ext.targetArchiveClassifier = 'Java1.8'
+
+ext.targetArchiveClassifier = 'Java21'
 
 
 
@@ -65,7 +66,7 @@ ext.targetArchiveClassifier = 'Java1.8'
 
 java {
   toolchain {
-    languageVersion.set(JavaLanguageVersion.of(8))
+    languageVersion.set(JavaLanguageVersion.of(21))
 //    languageVersion.set(JavaLanguageVersion.of(16))
   }
 }

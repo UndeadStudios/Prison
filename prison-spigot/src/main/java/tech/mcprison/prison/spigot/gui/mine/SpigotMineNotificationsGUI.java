@@ -78,14 +78,14 @@ public class SpigotMineNotificationsGUI
             gui.addButton(modeWithin);
             gui.addButton(radiusMode);
             // Add an enchantment effect to the button
-            disabledMode.addUnsafeEnchantment(Enchantment.LUCK, 1);
+            disabledMode.addUnsafeEnchantment(Enchantment.LUCK_OF_THE_SEA, 1);
             gui.addButton(disabledMode);
 
             // Check which buttons should be added, based on the mode already in use of the Mine Notifications
         } else if (enabledOrDisabled.equalsIgnoreCase("within")){
 
             // Add a button to the inventory
-            modeWithin.addUnsafeEnchantment(Enchantment.LUCK, 1);
+            modeWithin.addUnsafeEnchantment(Enchantment.LUCK_OF_THE_SEA, 1);
             gui.addButton(modeWithin);
             gui.addButton(radiusMode);
             gui.addButton(disabledMode);
@@ -95,7 +95,7 @@ public class SpigotMineNotificationsGUI
 
             // Add a button to the inventory
             gui.addButton(modeWithin);
-            radiusMode.addUnsafeEnchantment(Enchantment.LUCK, 1);
+            radiusMode.addUnsafeEnchantment(Enchantment.LUCK_OF_THE_SEA, 1);
             gui.addButton(radiusMode);
             gui.addButton(disabledMode);
         }

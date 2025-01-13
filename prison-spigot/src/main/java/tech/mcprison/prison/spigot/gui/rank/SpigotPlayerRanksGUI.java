@@ -305,7 +305,7 @@ public class SpigotPlayerRanksGUI
                 if (hackyCounterEnchant <= 0) {
                     hackyCounterEnchant++;
                     if (enchantmentEffectEnabled) {
-                        itemRank.addUnsafeEnchantment(Enchantment.LUCK, 1);
+                        itemRank.addUnsafeEnchantment(Enchantment.LUCK_OF_THE_SEA, 1);
                     }
                 }
             }

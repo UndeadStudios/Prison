@@ -121,7 +121,7 @@ public abstract class SpigotGUIComponents
             
             meta.addItemFlags( ItemFlag.HIDE_ENCHANTS );
             meta.addItemFlags( ItemFlag.HIDE_ATTRIBUTES );
-            meta.addItemFlags( ItemFlag.HIDE_POTION_EFFECTS );
+            meta.addItemFlags( ItemFlag.HIDE_ADDITIONAL_TOOLTIP );
             
             item.setItemMeta(meta);
         }

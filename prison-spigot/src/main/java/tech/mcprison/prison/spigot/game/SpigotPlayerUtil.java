@@ -345,7 +345,7 @@ public class SpigotPlayerUtil
 		try
 		{
 			@SuppressWarnings( "unused" )
-			Method methodGetKey = Enchantment.LUCK.getClass().getMethod( "getKey" );
+			Method methodGetKey = Enchantment.LUCK_OF_THE_SEA.getClass().getMethod( "getKey" );
 			
 			for ( Enchantment e : Enchantment.values() ) {
 				if (e.getKey().getKey().equalsIgnoreCase( enchant ) ) {
