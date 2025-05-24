@@ -21,7 +21,7 @@ public class MineBombs
 	public static final String MINE_BOMBS_NBT_BOMB_KEY = "PrisonMineBombNbtKey";
 	
 	
-	private static MineBombs instance;
+	private static volatile MineBombs instance;
 	
 	private MineBombsConfigData configData;
 	
@@ -306,7 +306,7 @@ public class MineBombs
 				isDirty = true;
 			}
 			
-			if ( bomb.getItemType() == null || bomb.getItemType().trim().length() == 0 ) {
+			if ( bomb.getItemType() == null || bomb.getItemType().trim().isEmpty()) {
 				
 				errors.add( String.format( 
 						"Invalid bomb itemType: Cannot be empty." ) );

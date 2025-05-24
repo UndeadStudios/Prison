@@ -225,12 +225,12 @@ public abstract class Spigot_1_8_Blocks
 //				}
 						
 				
-				if ( results == null ) {
-					// Last chance: try to match by id:
-					int id = spigotBlock.getType().getId();
-					results = XMaterial.matchXMaterial( id, data ).orElse( null );
-				}
-				
+//				if ( results == null ) {
+//					// Last chance: try to match by id:
+//					int id = spigotBlock.getType().getId();
+//					results = XMaterial.matchXMaterial( id ).orElse( null );
+//				}
+//
 				if ( results == null ) {
 					results = XMaterial.matchXMaterial(spigotBlock.getType());
 				}

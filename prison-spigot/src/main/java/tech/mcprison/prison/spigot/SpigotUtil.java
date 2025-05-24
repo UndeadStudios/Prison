@@ -640,62 +640,48 @@ public class SpigotUtil {
 	 */
 	public static List<PrisonBlock> getAllPlatformBlockTypes() {
 		List<PrisonBlock> blockTypes = new ArrayList<>();
-		
-		for ( XMaterial xMat : XMaterial.values() ) {
-			if ( xMat.isSupported() ) {
-				
-				ItemStack itemStack = xMat.parseItem();
-				
-				if ( xMat.name().toLowerCase().contains( "_wood" ) ) {
-					
-					// This validates that XMaterials can map to a Material and back to the correct XMaterial
-					// Bukkit versions < 1.13.0 fails on _WOOD blocks since XMaterial maps them to logs.
-					Material bMat = xMat.parseMaterial();
-					XMaterial xMatCheck = XMaterial.matchXMaterial( bMat );
 
-					if ( bMat != null  && xMat != xMatCheck ) {
-						// Incorrect mapping:
-						continue;
+		for (XMaterial xMat : XMaterial.values()) {
+			if (xMat.isSupported()) {
+
+				// SAFETY CHECK BEFORE PARSE
+				Material material = xMat.parseMaterial();
+				if (material == null || !material.isItem()) {
+					continue; // Skip non-item materials (e.g., wall signs, hanging signs, etc.)
+				}
+
+				ItemStack itemStack;
+				try {
+					itemStack = xMat.parseItem();
+				} catch (IllegalArgumentException e) {
+					// Defensive: parseItem may still throw in weird cases
+					Output.get().logWarn("Skipping unsupported item: " + xMat.name());
+					continue;
+				}
+
+				// Handle _wood name case and validation round-trip
+				if (xMat.name().toLowerCase().contains("_wood")) {
+					XMaterial xMatCheck = XMaterial.matchXMaterial(material);
+					if (xMat != xMatCheck) {
+						continue; // Invalid round-trip mapping
 					}
 				}
-				
-				if ( itemStack != null ) {
-					
-					//if ( itemStack.getType().isBlock() ) 
-					{
-						
-						PrisonBlock block = new PrisonBlock( xMat.name().toLowerCase() );
-						
-						block.setValid( true );
-						block.setBlock( itemStack.getType().isBlock() );
-						
-						blockTypes.add( block );
-					}
-				}
-				
-//				Material mat = xMat.parseMaterial();
-//				if ( mat != null ) {
-//					if ( mat.isBlock() ) {
-//						
-//						PrisonBlock block = new PrisonBlock( xMat.name().toLowerCase() );
-//						
-//						block.setValid( true );
-//						block.setBlock( mat.isBlock() );
-//						
-//						blockTypes.add( block );
-//					}
-//				}
-				else {
-					Output.get().logWarn( "### SpigotUtil.testAllPrisonBlockTypes: " +
-							"Possible XMaterial FAIL: XMaterial " + xMat.name() +
-							" is supported for this version, but the XMaterial cannot " +
-							"be mapped to an actual Material.");
+
+				if (itemStack != null) {
+					PrisonBlock block = new PrisonBlock(xMat.name().toLowerCase());
+					block.setValid(true);
+					block.setBlock(itemStack.getType().isBlock());
+					blockTypes.add(block);
+				} else {
+					Output.get().logWarn("### SpigotUtil.testAllPrisonBlockTypes: " +
+							"XMaterial " + xMat.name() + " supported, but parseItem() returned null.");
 				}
 			}
 		}
-		
+
 		return blockTypes;
 	}
+
 	
 	public static List<PrisonBlock> getAllCustomBlockTypes() {
 		List<PrisonBlock> blockTypes = new ArrayList<>();
